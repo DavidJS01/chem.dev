@@ -15,7 +15,7 @@ minify:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: Chem.Dev
+  title: ChemDev
   description: "ExampleSite description"
   keywords: [Blog, Portfolio, PaperMod]
   author: David
