@@ -1,7 +1,7 @@
 ---
 title: "Imposter Syndrome: Overcoming the Silent Infiltrator"
 date: 2023-07-10T15:42:46-04:00
-draft: false
+draft: true
 tags: ["psychological", "impostor syndrome"]
 categories: ["Personal"]
 ---
