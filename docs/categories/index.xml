@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on Chem.Dev</title>
-    <link>https://examplesite.com/categories/</link>
+    <link>https://davidjs01.github.io/chem.dev/categories/</link>
     <description>Recent content in Categories on Chem.Dev</description>
     <image>
       <title>Chem.Dev</title>
-      <url>https://examplesite.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://examplesite.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://davidjs01.github.io/chem.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://davidjs01.github.io/chem.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 11 Jul 2023 16:01:50 -0400</lastBuildDate><atom:link href="https://examplesite.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Jul 2023 16:01:50 -0400</lastBuildDate><atom:link href="https://davidjs01.github.io/chem.dev/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hard Lessons</title>
-      <link>https://examplesite.com/categories/hard-lessons/</link>
+      <link>https://davidjs01.github.io/chem.dev/categories/hard-lessons/</link>
       <pubDate>Tue, 11 Jul 2023 16:01:50 -0400</pubDate>
       
-      <guid>https://examplesite.com/categories/hard-lessons/</guid>
+      <guid>https://davidjs01.github.io/chem.dev/categories/hard-lessons/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Personal</title>
-      <link>https://examplesite.com/categories/personal/</link>
+      <link>https://davidjs01.github.io/chem.dev/categories/personal/</link>
       <pubDate>Mon, 10 Jul 2023 15:42:46 -0400</pubDate>
       
-      <guid>https://examplesite.com/categories/personal/</guid>
+      <guid>https://davidjs01.github.io/chem.dev/categories/personal/</guid>
       <description></description>
     </item>
     
