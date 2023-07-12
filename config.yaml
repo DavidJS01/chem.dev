@@ -1,4 +1,4 @@
-baseURL: "https://davidjs01.github.io/chem.dev/"
+baseURL: "chemdev.me"
 title: Chem.Dev
 paginate: 5
 theme: hugo-PaperMod-master
