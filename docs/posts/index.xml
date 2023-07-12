@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on Chem.Dev</title>
+    <link>https://examplesite.com/posts/</link>
+    <description>Recent content in Posts on Chem.Dev</description>
+    <image>
+      <title>Chem.Dev</title>
+      <url>https://examplesite.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://examplesite.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 11 Jul 2023 16:01:50 -0400</lastBuildDate><atom:link href="https://examplesite.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>I Broke Production</title>
+      <link>https://examplesite.com/posts/i-broke-production/</link>
+      <pubDate>Tue, 11 Jul 2023 16:01:50 -0400</pubDate>
+      
+      <guid>https://examplesite.com/posts/i-broke-production/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Imposter Syndrome: Overcoming the Silent Infiltrator</title>
+      <link>https://examplesite.com/posts/imposter-syndrome/</link>
+      <pubDate>Mon, 10 Jul 2023 15:42:46 -0400</pubDate>
+      
+      <guid>https://examplesite.com/posts/imposter-syndrome/</guid>
+      <description>Placeholder I only encountered impostor syndrome two times in my life, so far. My first experience with impostor syndrome was when I was enrolled in NWFSC&amp;rsquo;s Collegiate High School.
+My local community college founded a high school, believing that, with the proper support, high school students could succeed in college courses full time and gradudate with both their Associate of Arts and high school diploma.
+One day, I had a visceral, uncomfortable feeling in my stomach: &amp;ldquo;why am I here?</description>
+    </item>
+    
+  </channel>
+</rss>
