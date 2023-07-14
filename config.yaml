@@ -16,7 +16,7 @@ minify:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: ChemDev
-  description: "ExampleSite description"
+  description: "Mildly coherent musings of a budding engineer"
   keywords: [Blog, Portfolio, PaperMod]
   author: David
   # author: ["Me", "You"] # multiple authors
@@ -73,13 +73,13 @@ params:
   # home-info mode
   homeInfoParams:
     Title: "Welcome! \U0001F389"
-    Content: Welcome to chem.dev - the reflections of a growing engineer regarding tech & life.
+    Content: Welcome to chemdev.me - the reflections of a growing engineer regarding tech & life.
 
   socialIcons: # optional
     - name: "github"
       url: "https://github.com/DavidJS01"
     - name: "linkedin"
-      url: "https://github.com/"
+      url: "https://www.linkedin.com/in/david-shipman-512a871b2/"
 
   analytics:
     google:
