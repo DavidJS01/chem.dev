@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Hard Lessons on Chem.Dev</title>
+    <title>Hard Lessons on ChemDev.me</title>
     <link>https://chemdev.me/categories/hard-lessons/</link>
-    <description>Recent content in Hard Lessons on Chem.Dev</description>
+    <description>Recent content in Hard Lessons on ChemDev.me</description>
     <image>
-      <title>Chem.Dev</title>
+      <title>ChemDev.me</title>
       <url>https://chemdev.me/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://chemdev.me/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
@@ -17,7 +17,8 @@
       <pubDate>Tue, 11 Jul 2023 16:01:50 -0400</pubDate>
       
       <guid>https://chemdev.me/posts/i-broke-production/</guid>
-      <description></description>
+      <description>Oh no. I sat in my shower and cried for at least 30 minutes after the fact. But, how did I get to that point?
+The Situation Background The core of my company is being delivered data files every day from our clients. Most of my work lives in maintaining the application that ingests client data, transforms client data, and then pushes that client data to the client&amp;rsquo;s own production database.</description>
     </item>
     
   </channel>

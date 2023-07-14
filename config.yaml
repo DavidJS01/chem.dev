@@ -1,5 +1,5 @@
 baseURL: "https://chemdev.me"
-title: Chem.Dev
+title: ChemDev.me
 paginate: 5
 theme: hugo-PaperMod-master
 publishDir: "docs"
@@ -46,7 +46,7 @@ params:
     # disableFingerprinting: true
     favicon: "<link / abs url>"
     favicon16x16: "<link / abs url>"
-    favicon32x32: "<link / abs url>"
+    favicon32x32: "/Go_gopher_favicon.svg.png"
     apple_touch_icon: "<link / abs url>"
     safari_pinned_tab: "<link / abs url>"
 
