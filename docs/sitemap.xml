@@ -2,17 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://chemdev.me/categories/</loc>
+    <lastmod>2023-07-16T16:53:54-06:00</lastmod>
+  </url><url>
     <loc>https://chemdev.me/</loc>
+    <lastmod>2023-07-16T16:53:54-06:00</lastmod>
+  </url><url>
+    <loc>https://chemdev.me/tags/learning/</loc>
     <lastmod>2023-07-16T16:53:54-06:00</lastmod>
   </url><url>
     <loc>https://chemdev.me/posts/</loc>
     <lastmod>2023-07-16T16:53:54-06:00</lastmod>
   </url><url>
+    <loc>https://chemdev.me/tags/psychological/</loc>
+    <lastmod>2023-07-16T16:53:54-06:00</lastmod>
+  </url><url>
+    <loc>https://chemdev.me/categories/reflections/</loc>
+    <lastmod>2023-07-16T16:53:54-06:00</lastmod>
+  </url><url>
     <loc>https://chemdev.me/posts/just_start/</loc>
     <lastmod>2023-07-16T16:53:54-06:00</lastmod>
   </url><url>
-    <loc>https://chemdev.me/categories/</loc>
-    <lastmod>2023-07-11T16:01:50-04:00</lastmod>
+    <loc>https://chemdev.me/tags/</loc>
+    <lastmod>2023-07-16T16:53:54-06:00</lastmod>
   </url><url>
     <loc>https://chemdev.me/tags/data/</loc>
     <lastmod>2023-07-11T16:01:50-04:00</lastmod>
@@ -21,9 +33,6 @@
     <lastmod>2023-07-11T16:01:50-04:00</lastmod>
   </url><url>
     <loc>https://chemdev.me/posts/i-broke-production/</loc>
-    <lastmod>2023-07-11T16:01:50-04:00</lastmod>
-  </url><url>
-    <loc>https://chemdev.me/tags/</loc>
     <lastmod>2023-07-11T16:01:50-04:00</lastmod>
   </url>
 </urlset>

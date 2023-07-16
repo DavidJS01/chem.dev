@@ -2,6 +2,8 @@
 title: "Stop Contemplating: Just Start 🐧"
 date: 2023-07-16T16:53:54-06:00
 draft: false
+tags: ["learning", "psychological"]
+categories: ["Reflections"]
 ---
 Sometimes the effort of planning everything out perfectly is better getting your hands dirty and working towards your goals. 
 
