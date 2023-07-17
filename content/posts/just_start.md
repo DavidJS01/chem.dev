@@ -5,7 +5,7 @@ draft: false
 tags: ["learning", "psychological"]
 categories: ["Reflections"]
 ---
-Sometimes the effort of planning everything out perfectly is better getting your hands dirty and working towards your goals. 
+Sometimes the effort of planning everything out perfectly is better spent getting your hands dirty and working towards your goals. 
 
 ## My Affiction: Obsessive Planning
 I recently noticed that whenever I want to do or learn something new that I *need* to have every aspect of that new endeavour charted out before starting. 
