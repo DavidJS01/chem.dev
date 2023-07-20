@@ -10,7 +10,17 @@
       <link>https://chemdev.me/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 16 Jul 2023 16:53:54 -0600</lastBuildDate><atom:link href="https://chemdev.me/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Jul 2023 18:24:59 -0600</lastBuildDate><atom:link href="https://chemdev.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Software Teams Fail and Succeed Together</title>
+      <link>https://chemdev.me/posts/fail_together/</link>
+      <pubDate>Wed, 19 Jul 2023 18:24:59 -0600</pubDate>
+      
+      <guid>https://chemdev.me/posts/fail_together/</guid>
+      <description>A Team-First Focus Brings Everyone Up Most developers work in a team At every developer job I&amp;rsquo;ve had, I was part of a team. Each sprint we worked to achieve a common goal (sometimes multiple goals), even though each person was assigned a different ticket.
+No, none of us were some mystical, omniscient software developer that was amazing at devops, software engineering, or system design. We all had strengths and weaknesses balanced against one another.</description>
+    </item>
+    
     <item>
       <title>Stop Contemplating: Just Start 🐧</title>
       <link>https://chemdev.me/posts/just_start/</link>
