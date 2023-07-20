@@ -53,7 +53,7 @@ When a team delivers and succeeds as one cohesive unit, everyone benefits. Your 
 
 ## Closing Thoughts
 
-With a team-first perspective, every person on the team benefits. Your manager has a collaborative, effective team, and both you and your coworkers iterative and improve as engineers and communicators over time. 
+With a team-first perspective, every person on the team benefits. Your manager has a collaborative, effective team, and both you and your coworkers iterate and improve as engineers and communicators over time. 
 
 Even if your team is struggling with abandoning an old, non-collaborative culture, simply putting in the effort to spread the idea that we all fail and succeed together goes a long way. 
 
