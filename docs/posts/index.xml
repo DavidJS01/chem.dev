@@ -10,7 +10,19 @@
       <link>https://chemdev.me/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 19 Jul 2023 18:24:59 -0600</lastBuildDate><atom:link href="https://chemdev.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Thu, 03 Aug 2023 14:49:09 -0400</lastBuildDate><atom:link href="https://chemdev.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>I Finally Know Why Logging &amp; Monitoring Matters</title>
+      <link>https://chemdev.me/posts/logging-monitoring/</link>
+      <pubDate>Thu, 03 Aug 2023 14:49:09 -0400</pubDate>
+      
+      <guid>https://chemdev.me/posts/logging-monitoring/</guid>
+      <description>Background I am a relatively new engineer. At the time of writing this (August 3rd, 2023), I have 13 months of experience as a data engineering intern, and 6 months of experience as a junior data engineer.
+All of my work experience has been in the more software-engineery flavor of data engineering, while my current job is more like &amp;ldquo;Junior software engineer, data&amp;rdquo; in reality.
+For my two internships, logging and monitoring was already in place.</description>
+    </item>
+    
     <item>
       <title>Software Teams Fail and Succeed Together</title>
       <link>https://chemdev.me/posts/fail_together/</link>
