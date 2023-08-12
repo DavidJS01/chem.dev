@@ -32,5 +32,15 @@ My Affiction: Obsessive Planning I recently noticed that whenever I want to do o
 I get lost in that pursuit of a perfect, pristine path to begin my journey on that I don&amp;rsquo;t even take the first step.</description>
     </item>
     
+    <item>
+      <title>I Broke Production</title>
+      <link>https://chemdev.me/posts/i-broke-production/</link>
+      <pubDate>Tue, 11 Jul 2023 16:01:50 -0400</pubDate>
+      
+      <guid>https://chemdev.me/posts/i-broke-production/</guid>
+      <description>Oh no. I sat in my shower and cried for at least 30 minutes after the fact. But, how did I get to that point?
+The Situation Background The core of my company is being delivered data files every day from our clients. Most of my work lives in maintaining the application that ingests client data, transforms client data, and then pushes that client data to the client&amp;rsquo;s own production database.</description>
+    </item>
+    
   </channel>
 </rss>
