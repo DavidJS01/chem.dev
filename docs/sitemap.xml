@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://chemdev.me/</loc>
-    <lastmod>2023-08-03T14:49:09-04:00</lastmod>
+    <loc>https://chemdev.me/posts/intro_functional_thinking/</loc>
+    <lastmod>2023-08-12T17:22:17-06:00</lastmod>
   </url><url>
-    <loc>https://chemdev.me/posts/logging-monitoring/</loc>
-    <lastmod>2023-08-03T14:49:09-04:00</lastmod>
+    <loc>https://chemdev.me/</loc>
+    <lastmod>2023-08-12T17:22:17-06:00</lastmod>
   </url><url>
     <loc>https://chemdev.me/posts/</loc>
+    <lastmod>2023-08-12T17:22:17-06:00</lastmod>
+  </url><url>
+    <loc>https://chemdev.me/posts/logging-monitoring/</loc>
     <lastmod>2023-08-03T14:49:09-04:00</lastmod>
   </url><url>
     <loc>https://chemdev.me/posts/fail_together/</loc>

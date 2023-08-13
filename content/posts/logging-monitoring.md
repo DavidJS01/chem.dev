@@ -55,4 +55,4 @@ Considering the stress that the lack of logging has caused on both myself person
 
 Not being able to monitor our critical systems as a result of no logging has caused me more pain that I thought, and I will never take logging for granted ever again.
 
-Hopefully by the time I'm done with the ticket, I will have transformed our system from being held together with purple Elmer's glue and pipe cleaner in an opaque box to being held in a somewhat transparent box :)
+Hopefully by the time I'm done with the ticket, I will have transformed our system from being held together with purple Elmer's glue and pipe cleaner in an opaque box to being held in a somewhat held-together transparent box :)

@@ -10,8 +10,18 @@
       <link>https://chemdev.me/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Thu, 03 Aug 2023 14:49:09 -0400</lastBuildDate><atom:link href="https://chemdev.me/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Aug 2023 17:22:17 -0600</lastBuildDate><atom:link href="https://chemdev.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>An Introduction to Functional Thinking: Actions, Calculations, and Data</title>
+      <link>https://chemdev.me/posts/intro_functional_thinking/</link>
+      <pubDate>Sat, 12 Aug 2023 17:22:17 -0600</pubDate>
+      
+      <guid>https://chemdev.me/posts/intro_functional_thinking/</guid>
+      <description>Background I&amp;rsquo;m Learning Functional Programming Lately, I&amp;rsquo;ve started to dip my toes into the fountain of functional programming, and it has been really interesting and awesome!
+It feels like a breath of fresh air and more natural compared to typical OOP, and I want to share what I&amp;rsquo;ve learned with you!
+Grokking Simplicity To fill in my knowledge gaps on functional programming, I&amp;rsquo;m reading an amazing book by Eric Normand called Grokking Simplicity.</description>
+    </item>
+    
     <item>
       <title>I Finally Know Why Logging &amp; Monitoring Matters</title>
       <link>https://chemdev.me/posts/logging-monitoring/</link>
