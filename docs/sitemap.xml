@@ -5,10 +5,22 @@
     <loc>https://chemdev.me/posts/intro_functional_thinking/</loc>
     <lastmod>2023-08-12T17:22:17-06:00</lastmod>
   </url><url>
+    <loc>https://chemdev.me/categories/</loc>
+    <lastmod>2023-08-12T17:22:17-06:00</lastmod>
+  </url><url>
     <loc>https://chemdev.me/</loc>
     <lastmod>2023-08-12T17:22:17-06:00</lastmod>
   </url><url>
+    <loc>https://chemdev.me/categories/development/</loc>
+    <lastmod>2023-08-12T17:22:17-06:00</lastmod>
+  </url><url>
+    <loc>https://chemdev.me/tags/functional-programming/</loc>
+    <lastmod>2023-08-12T17:22:17-06:00</lastmod>
+  </url><url>
     <loc>https://chemdev.me/posts/</loc>
+    <lastmod>2023-08-12T17:22:17-06:00</lastmod>
+  </url><url>
+    <loc>https://chemdev.me/tags/</loc>
     <lastmod>2023-08-12T17:22:17-06:00</lastmod>
   </url><url>
     <loc>https://chemdev.me/posts/logging-monitoring/</loc>
@@ -16,9 +28,6 @@
   </url><url>
     <loc>https://chemdev.me/posts/fail_together/</loc>
     <lastmod>2023-07-19T18:24:59-06:00</lastmod>
-  </url><url>
-    <loc>https://chemdev.me/categories/</loc>
-    <lastmod>2023-07-16T16:53:54-06:00</lastmod>
   </url><url>
     <loc>https://chemdev.me/tags/learning/</loc>
     <lastmod>2023-07-16T16:53:54-06:00</lastmod>
@@ -30,9 +39,6 @@
     <lastmod>2023-07-16T16:53:54-06:00</lastmod>
   </url><url>
     <loc>https://chemdev.me/posts/just_start/</loc>
-    <lastmod>2023-07-16T16:53:54-06:00</lastmod>
-  </url><url>
-    <loc>https://chemdev.me/tags/</loc>
     <lastmod>2023-07-16T16:53:54-06:00</lastmod>
   </url><url>
     <loc>https://chemdev.me/tags/data/</loc>

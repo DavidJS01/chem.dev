@@ -2,6 +2,9 @@
 title: "An Introduction to Functional Thinking: Actions, Calculations, and Data"
 date: 2023-08-12T17:22:17-06:00
 draft: false
+
+categories: ["Development"]
+tags: ["Functional Programming"]
 ---
 
 # Background
