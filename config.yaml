@@ -1,6 +1,6 @@
 baseURL: "https://chemdev.me"
 title: ChemDev.me
-paginate: 10
+paginate: 5
 theme: hugo-PaperMod-master
 publishDir: "docs"
 
@@ -29,7 +29,7 @@ params:
   ShowShareButtons: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
-  ShowCodeCopyButtons: false
+  ShowCodeCopyButtons: true
   ShowWordCount: true
   ShowRssButtonInSectionTermList: true
   UseHugoToc: true
