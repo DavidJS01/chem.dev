@@ -1,7 +1,7 @@
 ---
 title: "The Joy of Learning; Overcoming Struggles in Software"
 date: 2023-10-01T23:14:39-06:00
-draft: false
+draft: true
 ---
 
 # One Must Imagine Sisyphus Happy
