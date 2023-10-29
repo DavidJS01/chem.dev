@@ -93,3 +93,11 @@ pub fn get_fake_ssn() -> String {
 Results in 
 
 ![gleam documentation is great](/gleam_docs.png)
+
+# Caveats 
+
+Gleam is a very cool and easy language to ramp up on. It is still very young, though, so a lot of things are (depending on your perspective)
+"missing".
+
+There is no API in the stdlib to open and read a file, so you will need to call external erlang or elixir functions. You will need to
+roll some of your own implementations.
