@@ -1,6 +1,6 @@
 baseURL: "https://chemdev.me"
 title: ChemDev.me
-paginate: 5
+paginate: 10
 theme: hugo-PaperMod-master
 publishDir: "docs"
 
