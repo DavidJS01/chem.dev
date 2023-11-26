@@ -10,7 +10,19 @@
       <link>https://chemdev.me/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 29 Oct 2023 13:44:27 -0600</lastBuildDate><atom:link href="https://chemdev.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Nov 2023 16:37:53 -0700</lastBuildDate><atom:link href="https://chemdev.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GUI Editors are Distracting</title>
+      <link>https://chemdev.me/posts/distractions/</link>
+      <pubDate>Sat, 25 Nov 2023 16:37:53 -0700</pubDate>
+      
+      <guid>https://chemdev.me/posts/distractions/</guid>
+      <description>What my VS Code setup looks like right now!
+This article talks mainly from the lens of using VS Code, but this also applies to my experiences with GoLand and Fleet.
+Prior Experiences in VS Code In 2021, I learned to program for the first time. Until now, in November 2023, I only used VS Code.
+VS Code is Great VS Code is great! There are so many features out of the box, the extension-based experience makes it easy to be productive out of the box.</description>
+    </item>
+    
     <item>
       <title>Gleam: A Neat Type Safe FP Language!</title>
       <link>https://chemdev.me/posts/gleam_is_cool/</link>
