@@ -10,7 +10,18 @@
       <link>https://chemdev.me/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 25 Nov 2023 16:37:53 -0700</lastBuildDate><atom:link href="https://chemdev.me/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Dec 2023 20:40:48 -0700</lastBuildDate><atom:link href="https://chemdev.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stop With the OOP Hivemind</title>
+      <link>https://chemdev.me/posts/stop/</link>
+      <pubDate>Tue, 12 Dec 2023 20:40:48 -0700</pubDate>
+      
+      <guid>https://chemdev.me/posts/stop/</guid>
+      <description>Preface: I understand that in a software team all that matters is that you all pick a convention, use it, and conform to your team&amp;rsquo;s standards.
+What matters is gaining victories as team, not my own personal opinion :). In software, I truly believe the team &amp;gt; the individual.
+Why Force It Everywhere? Situation My team used to have a senior engineer that came from a very traditional, old business type of environment.</description>
+    </item>
+    
     <item>
       <title>GUI Editors are Distracting</title>
       <link>https://chemdev.me/posts/distractions/</link>
