@@ -10,7 +10,19 @@
       <link>https://chemdev.me/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 12 Dec 2023 20:40:48 -0700</lastBuildDate><atom:link href="https://chemdev.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Dec 2023 17:03:43 -0700</lastBuildDate><atom:link href="https://chemdev.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Please, Stop With Resume Driven Development!</title>
+      <link>https://chemdev.me/posts/stop_with_resume_driven_development/</link>
+      <pubDate>Sat, 23 Dec 2023 17:03:43 -0700</pubDate>
+      
+      <guid>https://chemdev.me/posts/stop_with_resume_driven_development/</guid>
+      <description>I&amp;rsquo;m begging you. Please stop with resume driven development. What&amp;rsquo;s The Problem? You&amp;rsquo;re a small startup that creates a web-based SAAS product for clients. Your application read/writes to a DB.
+You ingest that data, apply transformations to it, and output actionable new data objects on the web app.
+You don&amp;rsquo;t have many clients, maybe 10 or 15. Traffic is relatively light.
+Do you need to overengineer a solution that will scale to thousands of clients, handle petabytes of data transfer from the application to the DB in a single day?</description>
+    </item>
+    
     <item>
       <title>Stop With the OOP Hivemind</title>
       <link>https://chemdev.me/posts/stop/</link>
