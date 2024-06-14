@@ -1,10 +1,12 @@
 # The URL the site will be built for
 base_url = "https://chemdev.me"
-description = "test"
+description = "Reflections, notes, and recreational programming."
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
 theme = "terminimal"
+
+title = "chemdev.me"
 
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
@@ -23,7 +25,7 @@ highlight_code = true
 logo_text = "chemdev.me"
 #show_only_description = true
 name = "David"
-homepage = "https://github.com/pawroman"
+homepage = "https://github.com/DavidJS01"
 
 # menu is enabled by adding menu_items (optional)
 menu_items = [
@@ -49,7 +51,7 @@ favicon_mimetype = "image/png"
 # Defaults to blue.
 # Append -light for light themes, e.g. blue-light
 # Or append -auto, e.g. blue-auto
-accent_color = "red"
+accent_color = "orange"
 
 # One of: blue, dark, green, orange, pink, red, light, auto
 # Enabling dark background will also modify primary font color to be darker.
