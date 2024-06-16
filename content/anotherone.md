@@ -9,7 +9,7 @@ summary = "I recently finished working at a fast-paced startup, with many good a
 
 tags = ["reflections", "career"]
 +++
-> Many thanks to Rob, Lulu, Stacy, Dave, Anton, and others who made my work a great experience <3
+> Many thanks to my wonderful project managers, direct managers, and team members who made my experience awesome <3
 
 ## Background
 I joined a small, series A startup company with decent funding, primarily working as a data platform engineer.
@@ -36,15 +36,15 @@ mode 24/7, so I could get more feedback. It was only like this because of manage
 - Temporary solutions seem to be the most permanent
 - The primary system was built with temporary solutions, glue, and duct tape, resulting in a black box.
   - Could have been avoided with general thought and the appropriate dev. culture.
-- Good project managers are amazing!!! Stacy and Lulu are amazing people.
+- Good project managers are amazing!!!
 - Think carefully and confirm any assumptions with coworkers - assumptions can lead to painful results.
 - Being kind and genuinely caring to coworkers can transform your team's morale.
 - Being a kind, uplifting coworker and meeting the technical skill requirements is a great combo for success.
-- I learned so much from Anton and Rob :)
+- I learned so much from my direct managers :)
 
 # What Went Well
 - Before I burned out, I significantly improved the team's culture just by being kind and caring about my team
-- I had an amazing manager, Rob, for some time that advocated for my promotion :D
+- I had an amazing manager for some time that advocated for my promotion :D
 - I had the best project managers and working with them was a joy <3
 - I navigated a black-box codebase with some effort and identified critical issues.
 - Very easily contributed to the codebase, coding felt pretty easy overall and I felt very comfortable.
