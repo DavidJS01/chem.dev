@@ -21,6 +21,7 @@ taxonomies = [
 highlight_code = true
 
 [extra]
+
 # Put all your custom variables here
 logo_text = "chemdev.me"
 #show_only_description = true
