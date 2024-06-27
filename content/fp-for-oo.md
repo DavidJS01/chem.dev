@@ -94,16 +94,4 @@ By promoting the use of Calculations for core logic and pushing side effects to 
 
 Embracing these concepts encourages a mindset shift toward building robust and scalable applications that remain coherent and manageable as they evolve over time.
 
-Above all, as you work, ask yourself: "What can I do to make this file contain more calculations and fewer actions?"
-
-
-# Personal Experience
-Have you worked in a system that was riddled with confusing behavior, state changes, etc?
-
-I unfortunately stepped into a role of adding features/maintaining a complete blackbox system, riddled with constant state and behavior changes in much of the codebase.
-
-One part of the system passed around a global variable from one file all over the codebase, constantly changing its value, and those changes resulted in changed behavior of the system! It was so painful to work with, and hard to reason about!
-
-The output of many functions were not consistent - even though it could have been. It took a while to onboard to that type of system, and testing was more difficult than it should have been.
-
-
+> Above all, as you work, ask yourself: "What can I do to make this file contain more calculations and fewer actions?"
