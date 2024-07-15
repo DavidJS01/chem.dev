@@ -1,5 +1,5 @@
 +++
-title = "The Most Important FP Concept for the OO Developer"
+title = "Isolating Stateful Changes for the OO Developer"
 date = "2024-06-26"
 draft = false
 [extra]

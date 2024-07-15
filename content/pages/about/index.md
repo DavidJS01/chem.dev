@@ -3,6 +3,7 @@ title = "About Me"
 path = "about"
 +++
 
-Will add this, soon.
+# Hello!
+I'm David, a software developer.
 
-![Invader Zim, Gir dances](gir.gif)
+I like learning new things just for the fun of it. Hopefully you can some new things with me :D
