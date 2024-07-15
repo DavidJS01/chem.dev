@@ -1,7 +1,7 @@
 +++
 title = "Success and Struggles: Reflections on My Last Job"
 date = 2024-06-13
-draft = false
+draft = true
 [extra]
 summary = "I recently finished working at a fast-paced startup, with many good and bad moments. What did I learn?"
 
