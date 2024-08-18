@@ -13,10 +13,10 @@ tags = ["development", "fp", "concurrency"]
 # Background
 Lately, I have been programming a lot in [Elixir](https://elixir-lang.org/).
 
-Elixir is a functional programming language with first class concurrency primitives and immutable data structures running on the [BEAM VM](https://www.erlang.org/blog/a-brief-beam-primer/).
+Elixir is a functional programming language with first-class concurrency primitives and immutable data structures running on the [BEAM VM](https://www.erlang.org/blog/a-brief-beam-primer/).
 
 ## Immutability in Elixir
-In Elixir, every data structure is immutable, so instead of modifying a variable directly, functions return a new memory location with a shallow copy reflecting your changes.
+In Elixir, every data structure is immutable, so, instead of modifying a variable directly, functions return a new memory location with a shallow copy reflecting your changes.
 
 You can see an example below, from Saša Jurić's [Elixir in Action](https://www.manning.com/books/elixir-in-action):
 
@@ -45,12 +45,12 @@ IO.inspect(transformed_email)
 # Output: "user+newsletter@newdomain.com"
 ```
 
-Personally, I like this model of programming because changes to the data structure is very explicit.
+Personally, I like this model of programming because changes to the data structure are very explicit.
 
 ### On Immutability and Debugging
 I worked in a few codebases where one object's values mutated so many times throughout the object's lifecycle.
 
-Debugging issues with objects like that was a challenge -- it felt like I was working with a black box as I had to constantly track the implicit state.
+Debugging issues with objects like that was a challenge -- it felt like I was working with a black box, as I had to constantly track the implicit state.
 
 I appreciate how the immutable perspective makes each transformation clear, reducing the mental overhead of tracking changes in state.
 
@@ -90,7 +90,7 @@ end
 ### In Traditional Languages
 A problem with programming concurrent applications in traditional, mutable languages is that data races can happen without explicit planning and oversight.
 
-This is also known as the [shared state model of concurrency](https://wiki.c2.com/?SharedStateConcurrency), and it implements some challenges with concurrent read/writes to shared state, like a global variable.
+This is also known as the [shared state model of concurrency](https://wiki.c2.com/?SharedStateConcurrency), and it introduces some challenges with concurrent read/writes to shared state, like a global variable.
 
 In the C++ program below, we need to [add a mutex](https://en.cppreference.com/w/cpp/thread/mutex) to avoid a data race.
 
@@ -122,7 +122,15 @@ int main() {
 }
 ```
 ### In Erlang/Elixir
-Erlang and Elixir take a different approach to concurrency: they adopt the [actor model](https://en.wikipedia.org/wiki/Actor_model). Each process is very lightweight and managed by the [BEAM VM](https://en.wikipedia.org/wiki/BEAM_(Erlang_virtual_machine)).
+Erlang and Elixir take a different approach to concurrency: they adopt the [actor model](https://en.wikipedia.org/wiki/Actor_model).
+
+Essentially, many processes are created in the [BEAM VM](https://en.wikipedia.org/wiki/BEAM_(Erlang_virtual_machine)).
+
+Each process encapsulates its own state, and processes can only communicate with one another using messages. 
+
+A process might receive a message to increment a counter, and then it can decide if it wants to fulfill that task.
+
+Each process is very lightweight and managed by the VM. The BEAM VM will decide which process gets to work and which CPU core it will utilize for that work.
 
 The actor model includes:
 - Process isolation
