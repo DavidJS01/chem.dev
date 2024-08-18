@@ -122,7 +122,7 @@ int main() {
 }
 ```
 ### In Erlang/Elixir
-Erlang and Elixir take a different approach to concurrency: they adopt the [actor model](https://en.wikipedia.org/wiki/Actor_model). Each process is a very lightweight and managed by the [BEAM VM](https://en.wikipedia.org/wiki/BEAM_(Erlang_virtual_machine)).
+Erlang and Elixir take a different approach to concurrency: they adopt the [actor model](https://en.wikipedia.org/wiki/Actor_model). Each process is very lightweight and managed by the [BEAM VM](https://en.wikipedia.org/wiki/BEAM_(Erlang_virtual_machine)).
 
 The actor model includes:
 - Process isolation
