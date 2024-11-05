@@ -167,6 +167,7 @@ By utilizing the actor model, Erlang and Elixir enable safe, concurrent programm
 - Immutable data structures = good
   - Because making a change to something results in a new thing, you can model program as straightforward transformation pipelines
   - Easier to reason through than in messy code in most languages
+	- Spend more time thinking about the data structure in the local scope
 - Developing correct concurrent software is really hard, especially when reading/writing to shared state
   - Elixir/Erlang's actor model implementation makes this a lot better!
 - Shared, mutable state = evil and headaches
