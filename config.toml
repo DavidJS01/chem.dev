@@ -42,6 +42,8 @@ menu_items = [
     
     # set newtab to true to make the link open in new tab
     {name = "github", url = "https://github.com/DavidJS01", newtab = true},
+
+    {name = "my emacs config", url = "https://github.com/taxyneno/emacs-config", newtab = true}
 ]
 
 favicon = "/favicon.png"

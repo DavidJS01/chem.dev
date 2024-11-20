@@ -14,7 +14,7 @@ tags = ["fp", "development"]
 # Overview
 There is a great book titled "Grokking Simplicity" that teaches how to think in a functional matter. 
 
-By creating a clear division from Actions and Calculations, the software will be easier to test, debug, and reason about.
+By creating a clear division from Actions and Calculations, your software will be easier to test, debug, and reason about.
 
 Essentially, you want:
 
