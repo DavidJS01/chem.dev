@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>chemdev.me</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+    <title>chemdev.me</title>
+    <link rel="stylesheet" href="https://chemdev.me/style.css">
+    <link rel="stylesheet" href="https://chemdev.me/color/orange.css">
+
+        <link rel="stylesheet" href="https://chemdev.me/color/background_blue.css">
+    
+    <link rel="stylesheet" href="https://chemdev.me/font-hack-subset.css">
+
+    <meta name="description" content="">
+
+    <meta property="og:description" content="">
+    <meta property="og:title" content="chemdev.me">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chemdev.me/joy-of-immutability/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="chemdev.me">
+    <meta property="twitter:domain" content="chemdev.me">
+    <meta property="twitter:url" content="https://chemdev.me/joy-of-immutability/">
+
+        <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    
+    </head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://chemdev.me" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            chemdev.me
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://chemdev.me">blog</a></li>
+            
+                <li><a href="https://chemdev.me/tags">tags</a></li>
+            
+                <li><a href="https://chemdev.me/about">about me</a></li>
+            
+                <li><a href="https://github.com/DavidJS01" target="_blank" rel="noopener noreferrer">github</a></li>
+            
+                <li><a href="https://github.com/taxyneno/emacs-config" target="_blank" rel="noopener noreferrer">my emacs config</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+    <div class="post">
+        
+    <h1 class="post-title"><a href="https://chemdev.me/joy-of-immutability/">The Joys of Immutability and Concurrency in Elixir</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2024-08-17
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://chemdev.me/tags/concurrency/">#concurrency</a>&nbsp;
+                <a class="post-tag" href="https://chemdev.me/tags/development/">#development</a>&nbsp;
+                <a class="post-tag" href="https://chemdev.me/tags/fp/">#fp</a></span>
+    
+
+        
+
+<div class="post-content">
+	    <h1 id="background">Background</h1>
+<p>Lately, I have been programming a lot in <a href="https://elixir-lang.org/">Elixir</a>.</p>
+<p>Elixir is a functional programming language with first class concurrency primitives and immutable data structures running on the <a href="https://www.erlang.org/blog/a-brief-beam-primer/">BEAM VM</a>.</p>
+<h2 id="immutability-in-elixir">Immutability in Elixir</h2>
+<p>In Elixir, every data structure is immutable, so instead of modifying a variable directly, functions return a new memory location with a shallow copy reflecting your changes.</p>
+<p>You can see an example below, from Saša Jurić's <a href="https://www.manning.com/books/elixir-in-action">Elixir in Action</a>:</p>
+<p><img src="/tuple-shared-memory.png" alt="diagram showing shallow copy in Elixir" /></p>
+<p>This approach is powerful: rather than tracking state changes over an object's lifetime, you can focus on composing functions that operate with straightforward inputs and outputs.</p>
+<h2 id="cognitive-benefits-of-immutability">Cognitive Benefits of Immutability</h2>
+<p>Immutability makes reasoning through state changes easier to manage. Each change in state becomes a distinct, independent value:</p>
+<pre data-lang="elixir" style="background-color:#2b303b;color:#c0c5ce;" class="language-elixir "><code class="language-elixir" data-lang="elixir"><span>email = &quot;</span><span style="color:#a3be8c;">USER@example.com</span><span>&quot;
+</span><span>
+</span><span>transformed_email = 
+</span><span>  email
+</span><span>  |&gt; </span><span style="color:#ebcb8b;">Email</span><span>.change_domain(&quot;</span><span style="color:#a3be8c;">newdomain.com</span><span>&quot;)
+</span><span style="color:#65737e;">  # &quot;USER@newdomain.com&quot;
+</span><span>  |&gt; </span><span style="color:#ebcb8b;">Email</span><span>.add_tag(&quot;</span><span style="color:#a3be8c;">newsletter</span><span>&quot;) 
+</span><span style="color:#65737e;">  # &quot;USER+newsletter@newdomain.com&quot;
+</span><span>  |&gt; </span><span style="color:#ebcb8b;">String</span><span>.downcase() 
+</span><span style="color:#65737e;">  # &quot;user+newsletter@newdomain.com&quot;
+</span><span>  
+</span><span style="color:#ebcb8b;">IO</span><span>.inspect(email)
+</span><span style="color:#65737e;"># Output: &quot;USER@example.com&quot;
+</span><span style="color:#ebcb8b;">IO</span><span>.inspect(transformed_email)
+</span><span style="color:#65737e;"># Output: &quot;user+newsletter@newdomain.com&quot;
+</span></code></pre>
+<p>Personally, I like this model of programming because changes to the data structure is very explicit.</p>
+<h3 id="on-immutability-and-debugging">On Immutability and Debugging</h3>
+<p>I worked in a few codebases where one object's values mutated so many times throughout the object's lifecycle.</p>
+<p>Debugging issues with objects like that was a challenge -- it felt like I was working with a black box as I had to constantly track the implicit state.</p>
+<p>I appreciate how the immutable perspective makes each transformation clear, reducing the mental overhead of tracking changes in state.</p>
+<h3 id="on-immutability-and-testing">On Immutability and Testing</h3>
+<p>With immutable data structures, testing becomes simpler because we only need to verify that the functions produce the correct output for a given input.</p>
+<pre data-lang="elixir" style="background-color:#2b303b;color:#c0c5ce;" class="language-elixir "><code class="language-elixir" data-lang="elixir"><span style="color:#b48ead;">defmodule </span><span style="color:#ebcb8b;">EmailTest </span><span style="color:#b48ead;">do
+</span><span>  </span><span style="color:#b48ead;">use </span><span style="color:#ebcb8b;">ExUnit</span><span>.</span><span style="color:#ebcb8b;">Case
+</span><span>
+</span><span>  test &quot;</span><span style="color:#a3be8c;">changing domain</span><span>&quot; </span><span style="color:#b48ead;">do
+</span><span>    email = &quot;</span><span style="color:#a3be8c;">USER@example.com</span><span>&quot;
+</span><span>    transformed_email = </span><span style="color:#ebcb8b;">Email</span><span>.change_domain(email, &quot;</span><span style="color:#a3be8c;">newdomain.com</span><span>&quot;)
+</span><span>    assert transformed_email == &quot;</span><span style="color:#a3be8c;">USER@newdomain.com</span><span>&quot;
+</span><span>  </span><span style="color:#b48ead;">end
+</span><span>
+</span><span>  test &quot;</span><span style="color:#a3be8c;">adding tag</span><span>&quot; </span><span style="color:#b48ead;">do
+</span><span>    email = &quot;</span><span style="color:#a3be8c;">USER@example.com</span><span>&quot;
+</span><span>    transformed_email = </span><span style="color:#ebcb8b;">Email</span><span>.add_tag(email, &quot;</span><span style="color:#a3be8c;">newsletter</span><span>&quot;)
+</span><span>    assert transformed_email == &quot;</span><span style="color:#a3be8c;">USER+newsletter@example.com</span><span>&quot;
+</span><span>  </span><span style="color:#b48ead;">end
+</span><span>
+</span><span>  test &quot;</span><span style="color:#a3be8c;">multiple transformations</span><span>&quot; </span><span style="color:#b48ead;">do
+</span><span>    email = &quot;</span><span style="color:#a3be8c;">USER@example.com</span><span>&quot;
+</span><span>    transformed_email =
+</span><span>      email
+</span><span>      |&gt; </span><span style="color:#ebcb8b;">Email</span><span>.change_domain(&quot;</span><span style="color:#a3be8c;">newdomain.com</span><span>&quot;)
+</span><span>      |&gt; </span><span style="color:#ebcb8b;">Email</span><span>.add_tag(&quot;</span><span style="color:#a3be8c;">newsletter</span><span>&quot;)
+</span><span>      |&gt; </span><span style="color:#ebcb8b;">String</span><span>.downcase()
+</span><span>
+</span><span>    assert transformed_email == &quot;</span><span style="color:#a3be8c;">user+newsletter@newdomain.com</span><span>&quot;
+</span><span>  </span><span style="color:#b48ead;">end
+</span><span style="color:#b48ead;">end 
+</span></code></pre>
+<h2 id="concurrency">Concurrency</h2>
+<h3 id="in-traditional-languages">In Traditional Languages</h3>
+<p>A problem with programming concurrent applications in traditional, mutable languages is that data races can happen without explicit planning and oversight.</p>
+<p>This is also known as the <a href="https://wiki.c2.com/?SharedStateConcurrency">shared state model of concurrency</a>, and it implements some challenges with concurrent read/writes to shared state, like a global variable.</p>
+<p>In the C++ program below, we need to <a href="https://en.cppreference.com/w/cpp/thread/mutex">add a mutex</a> to avoid a data race.</p>
+<p>What could go wrong if we didn't have the mutex?</p>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">iostream</span><span>&gt;
+</span><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">thread</span><span>&gt;
+</span><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">mutex</span><span>&gt;
+</span><span>
+</span><span>std::mutex mtx;
+</span><span style="color:#b48ead;">int</span><span> counter = </span><span style="color:#d08770;">0</span><span>;
+</span><span>
+</span><span style="color:#b48ead;">void </span><span style="color:#8fa1b3;">increment</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">for </span><span>(</span><span style="color:#b48ead;">int</span><span> i = </span><span style="color:#d08770;">0</span><span>; i &lt; </span><span style="color:#d08770;">1000</span><span>; i++) {
+</span><span>        std::lock_guard&lt;std::mutex&gt; </span><span style="color:#bf616a;">lock</span><span>(mtx);
+</span><span>        counter++;
+</span><span>    }
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    std::thread </span><span style="color:#bf616a;">t1</span><span>(increment);
+</span><span>    std::thread </span><span style="color:#bf616a;">t2</span><span>(increment);
+</span><span>
+</span><span>    t1.</span><span style="color:#bf616a;">join</span><span>();
+</span><span>    t2.</span><span style="color:#bf616a;">join</span><span>();
+</span><span>
+</span><span>    std::cout &lt;&lt; counter &lt;&lt; std::endl;
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span>;
+</span><span>}
+</span></code></pre>
+<h3 id="in-erlang-elixir">In Erlang/Elixir</h3>
+<p>Erlang and Elixir take a different approach to concurrency: they adopt the <a href="https://en.wikipedia.org/wiki/Actor_model">actor model</a>. Each process is very lightweight and managed by the <a href="https://en.wikipedia.org/wiki/BEAM_(Erlang_virtual_machine)">BEAM VM</a>.</p>
+<p>The actor model includes:</p>
+<ul>
+<li>Process isolation
+<ul>
+<li>Each process is completely isolated with its own memory and state (no memory sharing = good)</li>
+<li>This means processes can't interfere with each other's state directly, avoiding data races</li>
+</ul>
+</li>
+<li>Message passing
+<ul>
+<li>Processes communicate through asynchronous message passing</li>
+<li>Processes can choose how to handle each message</li>
+</ul>
+</li>
+</ul>
+<p>This is starting to sound a <a href="https://en.wikipedia.org/wiki/Smalltalk">lot like the message-passing essence of Smalltalk</a> :)</p>
+<pre data-lang="elixir" style="background-color:#2b303b;color:#c0c5ce;" class="language-elixir "><code class="language-elixir" data-lang="elixir"><span style="color:#b48ead;">defmodule </span><span style="color:#ebcb8b;">Example </span><span style="color:#b48ead;">do
+</span><span>  </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">listen </span><span style="color:#b48ead;">do
+</span><span>    </span><span style="color:#b48ead;">receive do
+</span><span>      {</span><span style="color:#a3be8c;">:ok</span><span>, &quot;</span><span style="color:#a3be8c;">hello</span><span>&quot;} -&gt; </span><span style="color:#ebcb8b;">IO</span><span>.puts(&quot;</span><span style="color:#a3be8c;">World</span><span>&quot;)
+</span><span>    </span><span style="color:#b48ead;">end
+</span><span style="color:#65737e;">    # Keep listening for messages
+</span><span>    listen() 
+</span><span>  </span><span style="color:#b48ead;">end
+</span><span style="color:#b48ead;">end
+</span><span>
+</span><span style="color:#65737e;"># Spawn a new process that runs the
+</span><span style="color:#65737e;"># `listen` function
+</span><span>iex&gt; pid = spawn(</span><span style="color:#ebcb8b;">Example</span><span>, </span><span style="color:#a3be8c;">:listen</span><span>, [])
+</span><span style="color:#65737e;">#PID&lt;0.108.0&gt;
+</span><span>
+</span><span style="color:#65737e;"># Send a message to the spawned process
+</span><span>iex&gt; send(pid, {</span><span style="color:#a3be8c;">:ok</span><span>, &quot;</span><span style="color:#a3be8c;">hello</span><span>&quot;})
+</span><span style="color:#ebcb8b;">World </span><span style="color:#65737e;"># &lt;- given the hello message, output is &#39;World&#39;
+</span><span>
+</span><span style="color:#65737e;"># The process will only handle messages
+</span><span style="color:#65737e;"># matching the pattern {:ok, &quot;hello&quot;}
+</span><span>iex&gt; send(pid, </span><span style="color:#a3be8c;">:ok</span><span>)
+</span><span style="color:#a3be8c;">:ok
+</span><span>
+</span></code></pre>
+<p>By utilizing the actor model, Erlang and Elixir enable safe, concurrent programming <strong>because there is no concept of sharing mutable state</strong>. On the application level, it becomes a joy to write concurrent programs in Elixir without fear of data races :).</p>
+<h1 id="closing-notes">Closing Notes</h1>
+<ul>
+<li>Immutable data structures = good
+<ul>
+<li>Because making a change to something results in a new thing, you can model program as straightforward transformation pipelines</li>
+<li>Easier to reason through than in messy code in most languages
+<ul>
+<li>Spend more time thinking about the data structure in the local scope</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Developing correct concurrent software is really hard, especially when reading/writing to shared state
+<ul>
+<li>Elixir/Erlang's actor model implementation makes this a lot better!</li>
+</ul>
+</li>
+<li>Shared, mutable state = evil and headaches</li>
+</ul>
+<p>Joe Armstrong (Erlang creator) has so many amazing talks. Here are some of my favorites:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=ed7A7r6DBsM">How and Why of Fitting Things Together</a></li>
+<li><a href="https://www.youtube.com/watch?v=lKXe3HUG2l4">The Mess We're In</a></li>
+<li><a href="https://www.youtube.com/watch?v=-I_jE0l7sYQ">Forgotten ideas in CS</a></li>
+<li><a href="https://www.youtube.com/watch?v=bo5WL5IQAd0">How we Program Multicores</a></li>
+</ul>
+<p>If you want to learn more about Elixir and Erlang, this is a great talk: <a href="https://www.youtube.com/watch?v=JvBT4XBdoUE">The Soul of Erlang &amp; Elixir</a></p>
+
+        </div>
+
+    </div>
+
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner" style="text-align: center;">
+            <p>"You have power over your mind — not outside events. Realize this, and you will find strength."</p>
+        </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>

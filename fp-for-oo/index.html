@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>chemdev.me</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+    <title>chemdev.me</title>
+    <link rel="stylesheet" href="https://chemdev.me/style.css">
+    <link rel="stylesheet" href="https://chemdev.me/color/orange.css">
+
+        <link rel="stylesheet" href="https://chemdev.me/color/background_blue.css">
+    
+    <link rel="stylesheet" href="https://chemdev.me/font-hack-subset.css">
+
+    <meta name="description" content="">
+
+    <meta property="og:description" content="">
+    <meta property="og:title" content="chemdev.me">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chemdev.me/fp-for-oo/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="chemdev.me">
+    <meta property="twitter:domain" content="chemdev.me">
+    <meta property="twitter:url" content="https://chemdev.me/fp-for-oo/">
+
+        <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    
+    </head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://chemdev.me" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            chemdev.me
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://chemdev.me">blog</a></li>
+            
+                <li><a href="https://chemdev.me/tags">tags</a></li>
+            
+                <li><a href="https://chemdev.me/about">about me</a></li>
+            
+                <li><a href="https://github.com/DavidJS01" target="_blank" rel="noopener noreferrer">github</a></li>
+            
+                <li><a href="https://github.com/taxyneno/emacs-config" target="_blank" rel="noopener noreferrer">my emacs config</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+    <div class="post">
+        
+    <h1 class="post-title"><a href="https://chemdev.me/fp-for-oo/">Isolating Stateful Changes for the OO Developer</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2024-06-26
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://chemdev.me/tags/development/">#development</a>&nbsp;
+                <a class="post-tag" href="https://chemdev.me/tags/fp/">#fp</a></span>
+    
+
+        
+
+<div class="post-content">
+	    <h1 id="overview">Overview</h1>
+<p>There is a great book titled &quot;Grokking Simplicity&quot; that teaches how to think in a functional matter. </p>
+<p>By creating a clear division from Actions and Calculations, your software will be easier to test, debug, and reason about.</p>
+<p>Essentially, you want:</p>
+<ul>
+<li>less code that depends on when or how it runs (Actions)</li>
+<li>more code with consistent inputs and outputs (Calculations)</li>
+<li>isolate impure functions/code (Actions) to the edge of the system</li>
+</ul>
+<center><a href="https://livebook.manning.com/book/grokking-simplicity/chapter-3/10"><p>https://livebook.manning.com/book/grokking-simplicity/chapter-3/10</p></a></center>
+<blockquote>
+<p>For what it is worth, this title is opinionated. This content is pretty simple, but I think it is very valuable for unfamiliar developers.</p>
+</blockquote>
+<h1 id="actions">Actions</h1>
+<p>Actions are code whose behavior or output changes depending when or how it is ran. This is also known as &quot;impure functions&quot;, functions with side-effects.</p>
+<table><thead><tr><th>Example</th><th>Explanation</th></tr></thead><tbody>
+<tr><td>Reading from a DB</td><td>Data in the DB might change between read calls</td></tr>
+<tr><td>Reading user input from a CLI calculator program</td><td>A CLI calculator depends on reading inputs from an external source, the user.</td></tr>
+</tbody></table>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#65737e;"># main has a side effect because it interacts with the external environment,
+</span><span style="color:#65737e;"># accepting input from a user.
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>() -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>	num1 = </span><span style="color:#bf616a;">int</span><span>(</span><span style="color:#96b5b4;">input</span><span>(&quot;</span><span style="color:#a3be8c;">Enter the first number: </span><span>&quot;))
+</span><span>	num2 = </span><span style="color:#bf616a;">int</span><span>(</span><span style="color:#96b5b4;">input</span><span>(&quot;</span><span style="color:#a3be8c;">Enter the second number: </span><span>&quot;))
+</span><span>	
+</span><span>	</span><span style="color:#96b5b4;">print</span><span>(num1 + num2)
+</span></code></pre>
+<h1 id="calculations">Calculations</h1>
+<p>Calculations are functions with consistent outputs given the same inputs.</p>
+<p>Calculations do not contain side-effects (IO, system interactions, etc), and are known as &quot;pure functions&quot;.</p>
+<p>Because calculations are consistent in output and behavior, they are very easy to test. </p>
+<p>How harder would it be to unit test the <code>input</code> calls above vs the functions below?</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">add_two</span><span>(</span><span style="color:#bf616a;">num1</span><span>: int, </span><span style="color:#bf616a;">num2</span><span>: int) -&gt; int:
+</span><span>	</span><span style="color:#b48ead;">return </span><span>num1 + num2
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">multiply_two</span><span>(</span><span style="color:#bf616a;">num1</span><span>: int, </span><span style="color:#bf616a;">num2</span><span>: int) -&gt; int:
+</span><span>	</span><span style="color:#b48ead;">return </span><span>num1 * num2
+</span></code></pre>
+<h1 id="functional-core-imperative-shell">Functional Core, Imperative Shell</h1>
+<p>Here is a great talk on functional core, imperative shell: <a href="https://www.youtube.com/watch?v=P1vES9AgfC4"> https://www.youtube.com/watch?v=P1vES9AgfC4 </a> </p>
+<p>The FP perspective accepts that we <strong>need</strong> side effects to produce useful software, but it strives to create more Calculations than Actions.</p>
+<p>In this context, we can have an imperative shell (the function main responsible for handling user input) that orchestrates the user's calculations using a functional core (our calculate functions):</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#65737e;"># add_two is a calculation, a pure function
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">add_two</span><span>(</span><span style="color:#bf616a;">num1</span><span>: int, </span><span style="color:#bf616a;">num2</span><span>: int) -&gt; int:
+</span><span>	</span><span style="color:#b48ead;">return </span><span>num1 + num2
+</span><span>	
+</span><span style="color:#65737e;"># multiply_two is a calculation, a pure function
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">multiply_two</span><span>(</span><span style="color:#bf616a;">num1</span><span>: int, </span><span style="color:#bf616a;">num2</span><span>: int) -&gt; int:
+</span><span>	</span><span style="color:#b48ead;">return </span><span>num1 * num2
+</span><span>
+</span><span style="color:#65737e;"># main is an action because it handles external state from user input
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>() -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>	num1 = </span><span style="color:#bf616a;">int</span><span>(</span><span style="color:#96b5b4;">input</span><span>(&quot;</span><span style="color:#a3be8c;">Enter the first number: </span><span>&quot;))
+</span><span>	num2 = </span><span style="color:#bf616a;">int</span><span>(</span><span style="color:#96b5b4;">input</span><span>(&quot;</span><span style="color:#a3be8c;">Enter the second number: </span><span>&quot;))
+</span><span>	
+</span><span>    </span><span style="color:#96b5b4;">print</span><span>(</span><span style="color:#b48ead;">f</span><span>&quot;</span><span style="color:#a3be8c;">The sum of </span><span>{num1}</span><span style="color:#a3be8c;"> + </span><span>{num2}</span><span style="color:#a3be8c;"> is </span><span>{</span><span style="color:#bf616a;">add_two</span><span>(num1, num2)}&quot;)
+</span><span>    </span><span style="color:#96b5b4;">print</span><span>(</span><span style="color:#b48ead;">f</span><span>&quot;</span><span style="color:#a3be8c;">The product of </span><span>{num1}</span><span style="color:#a3be8c;"> * </span><span>{num2}</span><span style="color:#a3be8c;"> is </span><span>{</span><span style="color:#bf616a;">multiply_two</span><span>(num1, num2)}&quot;)
+</span><span>		
+</span></code></pre>
+<h1 id="wrapping-it-up">Wrapping It Up</h1>
+<p>By promoting the use of Calculations for core logic and pushing side effects to Actions, your codebase becomes easier to test, reason about, and debug. This approach reduces the surface area for inconsistent behavior.</p>
+<p>Embracing these concepts encourages a mindset shift toward building robust and scalable applications that remain coherent and manageable as they evolve over time.</p>
+<blockquote>
+<p>Above all, as you work, ask yourself: &quot;What can I do to make this file contain more calculations and fewer actions?&quot;</p>
+</blockquote>
+
+        </div>
+
+    </div>
+
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner" style="text-align: center;">
+            <p>"You have power over your mind — not outside events. Realize this, and you will find strength."</p>
+        </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>

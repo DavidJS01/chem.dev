@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>chemdev.me</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+    <title>chemdev.me</title>
+    <link rel="stylesheet" href="https://chemdev.me/style.css">
+    <link rel="stylesheet" href="https://chemdev.me/color/orange.css">
+
+        <link rel="stylesheet" href="https://chemdev.me/color/background_blue.css">
+    
+    <link rel="stylesheet" href="https://chemdev.me/font-hack-subset.css">
+
+    <meta name="description" content="">
+
+    <meta property="og:description" content="">
+    <meta property="og:title" content="chemdev.me">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chemdev.me/star-vs-snowflake/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="chemdev.me">
+    <meta property="twitter:domain" content="chemdev.me">
+    <meta property="twitter:url" content="https://chemdev.me/star-vs-snowflake/">
+
+        <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    
+    </head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://chemdev.me" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            chemdev.me
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://chemdev.me">blog</a></li>
+            
+                <li><a href="https://chemdev.me/tags">tags</a></li>
+            
+                <li><a href="https://chemdev.me/about">about me</a></li>
+            
+                <li><a href="https://github.com/DavidJS01" target="_blank" rel="noopener noreferrer">github</a></li>
+            
+                <li><a href="https://github.com/taxyneno/emacs-config" target="_blank" rel="noopener noreferrer">my emacs config</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+    <div class="post">
+        
+    <h1 class="post-title"><a href="https://chemdev.me/star-vs-snowflake/">Snowflake Schemas vs Star Schemas: a TLDR</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2024-11-04
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://chemdev.me/tags/data-modeling/">#data modeling</a></span>
+    
+
+        
+
+<div class="post-content">
+	    <blockquote>
+<p>TLDR: Star schemas have denormalized dimension tables, snowflake schemas have normalized dimension tables. Probably favor star schemas unless you really need a snowflake schema.</p>
+</blockquote>
+<h1 id="tldr-version">TLDR Version</h1>
+<p>Use star schemas if:</p>
+<ul>
+<li>Need fast query performance</li>
+<li>Storage is not a concern</li>
+<li>Want simpler maintenance</li>
+</ul>
+<p>Use snowflake schemas if:</p>
+<ul>
+<li>Data consistency in your warehouse is critical</li>
+<li>Need to optimize for storage</li>
+</ul>
+<table><thead><tr><th style="text-align: center">Concern</th><th style="text-align: center">Star Schemas (Denormalized)</th><th style="text-align: center">Snowflake Schemas (Normalized)</th></tr></thead><tbody>
+<tr><td style="text-align: center">Storage</td><td style="text-align: center">More redundant, higher storage needs</td><td style="text-align: center">Efficient storage</td></tr>
+<tr><td style="text-align: center">Integrity</td><td style="text-align: center">Potential inconsistencies</td><td style="text-align: center">Overall better integrity from normalization</td></tr>
+<tr><td style="text-align: center">Query Performance</td><td style="text-align: center">Faster (fewer joins)</td><td style="text-align: center">Slower (more joins needed)</td></tr>
+</tbody></table>
+<h1 id="longer-version">Longer Version</h1>
+<h2 id="star-schemas">Star Schemas</h2>
+<p>Star schemas are the most common data model used in <a href="https://en.wikipedia.org/wiki/Online_analytical_processing">OLAP</a> systems. This includes examples like Snowflake, Redshift, Clickhouse, etc.</p>
+<p>A star schema is composed of two different types of tables: <strong>fact tables</strong> and <strong>dimension tables</strong>.</p>
+<h4 id="fact-tables">Fact Tables</h4>
+<p>In a fact table, each row represents an event that happened at a particular time.</p>
+<ul>
+<li>Some columns in the table are attributes
+<ul>
+<li>Cost of buying an item, the price of the item sold, etc</li>
+</ul>
+</li>
+<li>Other columns are foreign keys to <strong>dimension tables</strong> </li>
+</ul>
+<h4 id="dimension-tables">Dimension Tables</h4>
+<p>Dimension tables are used to represent the <em><strong>who, what, where, when, how, and why</strong></em> of the event. If we had a &quot;sales&quot; fact table, it might have these dimensions:</p>
+<table><thead><tr><th style="text-align: center">Dimension Type</th><th style="text-align: center">Example Dimension</th><th>Example Dimension Columns</th></tr></thead><tbody>
+<tr><td style="text-align: center">who</td><td style="text-align: center">customer</td><td>customer_name, location, phone</td></tr>
+<tr><td style="text-align: center">what</td><td style="text-align: center">product</td><td>product_name, category, brand</td></tr>
+<tr><td style="text-align: center">where</td><td style="text-align: center">store</td><td>location, region, market</td></tr>
+<tr><td style="text-align: center">when</td><td style="text-align: center">time</td><td>date, month, year, season</td></tr>
+<tr><td style="text-align: center">how</td><td style="text-align: center">shipping</td><td>delivery_method, carrier</td></tr>
+<tr><td style="text-align: center">why</td><td style="text-align: center">promotion</td><td>promotion_name, discount_type</td></tr>
+</tbody></table>
+<h2 id="snowflake-schemas">Snowflake Schemas</h2>
+<blockquote>
+<p>The only difference between a snowflake schema and a star schema is that the snowflake schema's dimension tables are <a href="https://www.youtube.com/watch?v=GFQaEYEc8_8">normalized</a>.</p>
+</blockquote>
+<p>Consider a simple sales database using a snowflake schema with a sales fact table, product dimension, and a category dimension (pictured below).</p>
+<p>By normalizing the product dimension and referencing categories by id, any updates for a product's category (moving &quot;Electronics&quot; to &quot;Consumer Electronics&quot;) only needs to happen in one place: the category dimension.</p>
+<p><img src="/snowflake_schema_example.png" alt="diagram of a snowflake schema" /></p>
+<p>This results in:</p>
+<p><strong>Stronger data integrity</strong></p>
+<ul>
+<li>Updates to category information happen in one place</li>
+<li>Can't accidentally have &quot;Electronics&quot; and &quot;electronics&quot; as different categories</li>
+</ul>
+<p><strong>Better storage efficiency</strong></p>
+<ul>
+<li>Category details stored once, not repeated for every product</li>
+</ul>
+<p><strong>Single source of truth for data</strong></p>
+<ul>
+<li>Each piece of information exists in exactly one place</li>
+<li>Easier to enforce business rules</li>
+</ul>
+
+        </div>
+
+    </div>
+
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner" style="text-align: center;">
+            <p>"You have power over your mind — not outside events. Realize this, and you will find strength."</p>
+        </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>
